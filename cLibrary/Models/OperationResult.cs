@@ -12,8 +12,8 @@ namespace cLibrary.Models
         #region altri costruttori        
         public OperationResult(bool result = false)
         {
-            this.Result = result;
-            this.Message = Result ? new SuccessMessage()
+            this.Success = result;
+            this.Message = Success ? new SuccessMessage()
                  : _rowWrited == 0
                  ? new WarnMessage(DefaultWarningMessage)
                  : new ErrorMessage(DefaultErrorMessage);
@@ -23,15 +23,15 @@ namespace cLibrary.Models
             try
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
-                this.Result = _rowWrited > 0;
-                this.Message = Result ? new SuccessMessage()
+                this.Success = _rowWrited > 0;
+                this.Message = Success ? new SuccessMessage()
                     : _rowWrited == 0
                     ? new WarnMessage(DefaultWarningMessage)
                     : new ErrorMessage(errorMessage ?? DefaultErrorMessage);
             }
             catch (Exception ex)
             {
-                this.Result = false;
+                this.Success = false;
 #if DEBUG                
                 this.ExMessage = ex.InnerException?.Message ?? ex.Message;
                 this.Message = new ErrorMessage(ExMessage);
@@ -45,29 +45,29 @@ namespace cLibrary.Models
             : this(saveFunc)
         {
             this.Data = data;
-            if (Result && data is MessageModel) this.Message = data;
+            if (Success && data is MessageModel) this.Message = data;
         }
         public OperationResult(dynamic data)
            : this((bool)(data != null))
         {
             this.Data = data;
-            if (Result && data is MessageModel) this.Message = data;
+            if (Success && data is MessageModel) this.Message = data;
         }
         public OperationResult(string errorMessage, dynamic data = null)
            : this(() => -1, errorMessage)
         {
             this.Data = data;
-            if (Result && data is MessageModel) this.Message = data;
+            if (Success && data is MessageModel) this.Message = data;
         }
         public OperationResult(List<string> errorMessage, dynamic data = null)
            : this(() => -1, string.Join(Environment.NewLine, errorMessage))
         {
             this.Data = data;
-            if (Result && data is MessageModel) this.Message = data;
+            if (Success && data is MessageModel) this.Message = data;
         }
         public OperationResult(Exception ex, string errorMessage = null)
         {
-            this.Result = false;
+            this.Success = false;
 #if DEBUG
             this.ExMessage = ex.InnerException?.Message ?? ex.Message;
             this.Message = new ErrorMessage(ExMessage);
@@ -79,7 +79,7 @@ namespace cLibrary.Models
         #endregion
 
         private int _rowWrited { get; set; } = 0;
-        public bool Result { get; set; } = false;
+        public bool Success { get; set; } = false;
         public dynamic Data { get; set; }
         public MessageModel Message { get; set; }
         public string ExMessage { get; set; }
