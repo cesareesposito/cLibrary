@@ -1,9 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+##HOW TO USE
 
-
-using cLibrary.Models.Base;
-using cLibrary.Models;
-using csLibrary.Helper;
+##cCovert
+using csLibrary.extensions;
 
 string numberString = "10";
 int n1 = numberString.ToInt();
@@ -12,8 +11,8 @@ Console.WriteLine(n1);  // Output: 10
 string date = "2023-05-27";
 DateTime dateTime = date.ToDateTime();
 Console.WriteLine(dateTime);  // Output: 2023-05-27 00:00:00
-Console.ReadLine();
 
+##cQueryable
 class Dto
 {
     public int Id { get; set; }
@@ -37,7 +36,7 @@ class Service
             //cLibrary.models.Enums.SortDirection.Ascending = 0
             //SortOrder = cLibrary.models.Enums.SortDirection.Descending,
             //or
-            SortOrder = (cLibrary.Models.Enums.SortDirection)1
+            SortOrder = (cLibrary.models.Enums.SortDirection)1
         };
         var result = dtos
             .AsQueryable()
@@ -60,7 +59,3 @@ class Service
         //  }
     }
 }
-
-
-
-

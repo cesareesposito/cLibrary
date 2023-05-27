@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\cLibrary.helper\cLibrary.helper.csproj" />
-    <ProjectReference Include="..\csLibrary.extensions\csLibrary.extensions.csproj" />
+    <ProjectReference Include="..\cLibrary\cLibrary.csproj" />
   </ItemGroup>
 
 </Project>

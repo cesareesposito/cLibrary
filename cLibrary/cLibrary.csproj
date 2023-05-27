@@ -5,12 +5,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>cLibrary</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>Cesare Esposito</Authors>
 		<Company></Company>		
-		<Description>
-			The cLibrary library allows you to simplify the conversion between different data types, 
-			provide assistance in creating Excel files, and facilitate the usage of queries with LINQ. 
+		<Description>			 
 			This library has been designed to improve development efficiency and simplify common tasks within your applications.
 		</Description>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
@@ -22,9 +20,12 @@
 
 			<None Include="docs\readme.md" Pack="true" PackagePath="\" />
 			<None Include="docs\license.txt" Pack="true" PackagePath="\" />
-		<ProjectReference Include="..\cLibrary.helper\cLibrary.helper.csproj" />
-		<ProjectReference Include="..\csLibrary.extensions\csLibrary.extensions.csproj" />
 		
 	</ItemGroup>
+
+		<ItemGroup>
+		  <PackageReference Include="EPPlus" Version="6.2.4" />
+		  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+		</ItemGroup>
 
 </Project>
