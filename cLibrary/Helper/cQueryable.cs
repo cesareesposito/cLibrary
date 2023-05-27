@@ -5,7 +5,7 @@ using cLibrary.Models;
 using cLibrary.Models.Base;
 using cLibrary.Models.Enums;
 
-namespace csLibrary.Helper
+namespace cLibrary.Helper
 {
     public static class cQueryableExtensions
     {

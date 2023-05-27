@@ -3,7 +3,7 @@
 
 using cLibrary.Models.Base;
 using cLibrary.Models;
-using csLibrary.Helper;
+using cLibrary.Helper;
 
 string numberString = "10";
 int n1 = numberString.ToInt();
@@ -39,6 +39,9 @@ class Service
             //or
             SortOrder = (cLibrary.Models.Enums.SortDirection)1
         };
+
+        dtos.cForEach(it => it.Name = "3333");
+
         var result = dtos
             .AsQueryable()
             .ApplyBaseFilterAsync(filter);

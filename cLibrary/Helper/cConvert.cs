@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace csLibrary.Helper
+namespace cLibrary.Helper
 {
     public static partial class cConvertExtensions
     {
