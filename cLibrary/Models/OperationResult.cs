@@ -18,13 +18,13 @@ namespace cLibrary.Models
                  ? new WarnMessage(DefaultWarningMessage)
                  : new ErrorMessage(DefaultErrorMessage);
         }
-        public OperationResult(Func<int?> saveFunc, string errorMessage = null, dynamic data = null)
+        public OperationResult(Func<int?> saveFunc, string errorMessage = null, string successMessage = null, dynamic data = null)
         {
             try
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
                 this.Success = _rowWrited > 0;
-                this.Message = Success ? new SuccessMessage()
+                this.Message = Success ? new SuccessMessage() { Detail= successMessage }
                     : _rowWrited == 0
                     ? new WarnMessage(DefaultWarningMessage)
                     : new ErrorMessage(errorMessage ?? DefaultErrorMessage);
