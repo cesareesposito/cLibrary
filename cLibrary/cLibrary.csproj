@@ -15,6 +15,7 @@
 		</Description>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseFile>license.txt</PackageLicenseFile>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 		<ItemGroup>

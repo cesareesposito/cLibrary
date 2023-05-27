@@ -1,4 +1,6 @@
-﻿namespace cLibrary.models.Base
+﻿using cLibrary.models.Enums;
+
+namespace cLibrary.models.Base
 {
     public abstract class FilterBase
     {
@@ -6,7 +8,7 @@
         public int? PageSize { get; set; }
         public int Skip { get; set; }
         public string SortField { get; set; }
-        public int SortOrder { get; set; } = 1;
+        public SortDirection SortOrder { get; set; } = SortDirection.Descending;
         public bool CountTotal { get; set; } = true;
     }    
 }
