@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
@@ -7,12 +7,23 @@
 		<PackageId>cLibrary.27.05.23.001</PackageId>
 		<Version>1.0.0</Version>
 		<Authors>Cesare Esposito</Authors>
-		<Company></Company>
+		<Company></Company>		
+		<Description>
+			The cLibrary library allows you to simplify the conversion between different data types, 
+			provide assistance in creating Excel files, and facilitate the usage of queries with LINQ. 
+			This library has been designed to improve development efficiency and simplify common tasks within your applications.
+		</Description>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageLicenseFile>license.txt</PackageLicenseFile>
 	</PropertyGroup>
 
-	<ItemGroup>
+		<ItemGroup>
+
+			<None Include="docs\readme.md" Pack="true" PackagePath="\" />
+			<None Include="docs\license.txt" Pack="true" PackagePath="\" />
 		<ProjectReference Include="..\cLibrary.helper\cLibrary.helper.csproj" />
 		<ProjectReference Include="..\csLibrary.extensions\csLibrary.extensions.csproj" />
+		
 	</ItemGroup>
 
 </Project>
