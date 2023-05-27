@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>cLibrary.27.05.23.001</PackageId>
+		<Version>1.0.0</Version>
+		<Authors>Cesare Esposito</Authors>
+		<Company></Company>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\cLibrary.helper\cLibrary.helper.csproj" />
+		<ProjectReference Include="..\csLibrary.extensions\csLibrary.extensions.csproj" />
+	</ItemGroup>
+
+</Project>
