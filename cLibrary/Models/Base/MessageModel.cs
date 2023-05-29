@@ -1,9 +1,11 @@
-﻿namespace cLibrary.Models.Base
+﻿using cLibrary.Models.Enums;
+
+namespace cLibrary.Models.Base
 {
     public abstract class MessageModel
     {
-        public string Severity { get; protected set; } = "success";
-        public string Summary { get; protected set; } = "Success";
+        public string Severity { get; protected set; } = LogSeverity.Success.Severity;
+        public string Summary { get; protected set; } = LogSeverity.Success.Summary;
 
         private string _deatail = OperationResult.DefaultMessage;
         public string Detail

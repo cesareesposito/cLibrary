@@ -2,7 +2,7 @@
 
 namespace cLibrary.Models.Base
 {
-    public abstract class FilterBase
+    public abstract class Filter
     {
         public string SearchText { get; set; }
         public int? PageSize { get; set; }

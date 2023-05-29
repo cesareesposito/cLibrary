@@ -1,4 +1,5 @@
 ﻿using cLibrary.Models.Base;
+using cLibrary.Models.Enums;
 
 namespace cLibrary.Models.Messages
 {
@@ -6,8 +7,8 @@ namespace cLibrary.Models.Messages
     {
         public InfoMessage(string detail = "")
         {
-            Severity = "info";
-            Summary = "Info";
+            Severity = LogSeverity.Info.Severity;
+            Summary = LogSeverity.Info.Summary;
             Detail = detail;
         }
     }

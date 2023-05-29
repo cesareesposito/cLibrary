@@ -128,7 +128,6 @@ namespace cLibrary.WinCustomControl.LogProcess
         }
         #endregion
 
-
         #region esecuzione automatica della lista dei tasks
 
         int _i = 0;
@@ -271,7 +270,6 @@ namespace cLibrary.WinCustomControl.LogProcess
             //RunTask(_tasks[0]);
         }
         #endregion
-
 
         #region filtri sulla DataGridView del log
         private void cbxActivity_SelectedIndexChanged(object sender, EventArgs e)

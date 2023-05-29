@@ -19,7 +19,7 @@ class Dto
     public int Id { get; set; }
     public string Name { get; set; }
 }
-class Filter : FilterBase { }
+class Filter : cLibrary.Models.Base.Filter { }
 class Service
 {
     private List<Dto> dtos = new()
@@ -37,7 +37,7 @@ class Service
             //cLibrary.models.Enums.SortDirection.Ascending = 0
             //SortOrder = cLibrary.models.Enums.SortDirection.Descending,
             //or
-            SortOrder = (cLibrary.Models.Enums.SortDirection)1
+            SortOrder = cLibrary.Models.Enums.SortDirection.Descending
         };
 
         dtos.cForEach(it => it.Name = "3333");
