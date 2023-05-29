@@ -12,7 +12,7 @@ namespace cLibrary.Models.Task
     {
         private string _shortTitle;
         private string _title;
-        private cTaskManager _task;
+        //private cTaskManager _task;
         private ParameterizedThreadStart _taskDelegate;
         private object _taskParams;
         private TaskResult _taskResult = TaskResult.ABORT;
@@ -23,31 +23,19 @@ namespace cLibrary.Models.Task
             get { return _shortTitle; }
             set { _shortTitle = value; }
         }
-
         public string Title
         {
             get { return _title; }
-            set { _title = value; }
-        }
-
-        public cTaskManager Task
-        {
-            get { return _task; }
-            set { _task = value; }
-        }
-
+        }       
         public ParameterizedThreadStart TaskDelegate
         {
             get { return _taskDelegate; }
-            set { _taskDelegate = value; }
         }
-
         public TaskResult TaskResult
         {
             get { return _taskResult; }
             set { _taskResult = value; }
         }
-
         public int Progress
         {
             get { return _progress; }
@@ -57,21 +45,37 @@ namespace cLibrary.Models.Task
                     _progress = value;
             }
         }
-
         public object TaskParams
         {
             get { return _taskParams; }
-            set { _taskParams = value; }
         }
 
+        public Action<LogElement> AddLogElement { get; internal set; }
+
         public TaskDescriptor(string shortTitle, string title,
-            cTaskManager task,
             object taskParams)
         {
             _shortTitle = shortTitle;
             _title = title;
-            _task = task;
             _taskParams = taskParams;
+            _taskDelegate += new ParameterizedThreadStart(Task_Delegate);
+        }
+
+        protected void Task_Delegate(object param)
+        {
+            try
+            {
+                TaskWork();
+            }
+            catch
+            {
+                TaskResult = TaskResult.FAILURE;
+            }
+        }
+
+        public virtual void TaskWork()
+        {
+            TaskResult = TaskResult.TASKEMPTY;
         }
     }
 }

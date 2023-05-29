@@ -1,28 +1,21 @@
 ﻿using cLibrary.Models.Enums;
 using cLibrary.Models.Task;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cLibrary.Helper
-{
+{    
     public class cTaskManager
     {
-
-
         #region definizione e riempimento del log
         private List<LogElement> _log = new List<LogElement>();
+        public List<LogElement> Logs { get { return _log; } }
 
-
-        static string _lastMsg = string.Empty;
-        static string _lastObj = string.Empty;
+        public delegate void onLogElementDelegate(LogElement log);
+        public event onLogElementDelegate OnLogElement;
         public void AddLogElement(LogElement log)
         {
             _log.Add(log);
+            if (OnLogElement != null)
+                OnLogElement(log);
         }
         #endregion
 
@@ -30,16 +23,15 @@ namespace cLibrary.Helper
         private List<TaskDescriptor> _tasks = new List<TaskDescriptor>();
         public void AddTask(TaskDescriptor x)
         {
+            x.AddLogElement = AddLogElement;
             _tasks.Add(x);
-            x.Task = this;
+            //x.Task = this;
         }
-
         public void AddTasks(TaskDescriptor[] tasks)
         {
             foreach (TaskDescriptor x in tasks)
                 AddTask(x);
         }
-
         public void AddTasks(List<TaskDescriptor> tasks)
         {
             AddTasks(tasks.ToArray());
@@ -47,8 +39,8 @@ namespace cLibrary.Helper
         #endregion
 
         #region evento su completamento a buon fine
-        public delegate void OnSuccessfulCompletionDelegate(cTaskManager task, int totalOperations, int errors, List<TaskDescriptor> tasks);
-        public event OnSuccessfulCompletionDelegate OnSuccessfulCompletion;
+        public delegate void OnCompletedDelegate(List<TaskDescriptor> tasks, int totalOperations, int errors);
+        public event OnCompletedDelegate OnCompleted;
         #endregion
 
         #region esecuzione automatica della lista dei tasks
@@ -69,7 +61,7 @@ namespace cLibrary.Helper
             if (_currentTask == null && _i < _tasks.Count)
                 return;
 
-            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, LogSeverity.Info, _currentTask.Title));
+            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, LogSeverity.Info, "RunTasks 1"));
 
             if (_currentTask.TaskDelegate == null)
             {
@@ -82,7 +74,6 @@ namespace cLibrary.Helper
             _thread.Start(_currentTask);
             TaskDoWork();
         }
-
         private void TaskDoWork()
         {
             _currentTask.Progress = 0;
@@ -93,15 +84,13 @@ namespace cLibrary.Helper
 
             TaskCompleted();
         }
-
         private void TaskCompleted()
         {
             _currentTask.Progress = 100;
-            var message = $"{_currentTask.Title} {(_currentTask.TaskResult == TaskResult.SUCCESS ? "- Completed." : _currentTask.TaskResult.LogSeverity.Label)}";            
-            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, null, _currentTask.TaskResult.LogSeverity, message));            
+            var message = $"{_currentTask.Title} {(_currentTask.TaskResult == TaskResult.SUCCESS ? "- Completed." : _currentTask.TaskResult.LogSeverity.Label)}";
+            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, null, _currentTask.TaskResult.LogSeverity, message));
             RunTasks(); // Next task
         }
-
         private void SummarizeTasks()
         {
             int err = 0;
@@ -124,13 +113,12 @@ namespace cLibrary.Helper
             else
             {
                 var msg = String.Format("Completate {0} operazioni con successo, {1} operazioni complete con errori, {2} operazioni interrotte ", total - err, err, abort);
-                AddLogElement(new LogElement("FINE", 0, string.Empty, LogSeverity.Info, msg));
+                AddLogElement(new LogElement("FINE", 0, string.Empty, LogSeverity.Warning, msg));
 
             }
-            if (OnSuccessfulCompletion != null && total > err)
-                OnSuccessfulCompletion(this, total, err, _tasks);
+            if (OnCompleted != null && total > err)
+                OnCompleted(_tasks, total, err);
         }
-
         #endregion
     }
 }

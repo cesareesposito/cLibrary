@@ -11,13 +11,11 @@ namespace cLibrary.Helper
     public class cExcel
     {
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="dic"></param>
-        /// <returns></returns>
-        /// EXEMPLE 
         /// Dictionary<string, dynamic> dic = new Dictionary<string, dynamic>();
         /// dic["sheet_name"] = list;
+        /// </summary>
+        /// <param name="dic"></param>
+        /// <returns></returns>        
         public byte[] MakeExcel(Dictionary<string, dynamic> dic)
         {
             using (ExcelPackage packge = new ExcelPackage())
