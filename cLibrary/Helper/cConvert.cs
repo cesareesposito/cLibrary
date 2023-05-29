@@ -5,6 +5,11 @@ namespace cLibrary.Helper
 {
     public static partial class cConvertExtensions
     {
+        public static bool IsNull(object obj)
+        {
+            return obj == null || obj == DBNull.Value;
+        }
+
         #region String
         public static bool IsNotNullOrEmpty(this string value)
         {
@@ -16,11 +21,11 @@ namespace cLibrary.Helper
         public static int ToInt(this object value)
         {
             if (value == null)
-                throw new Exception("Impossibile convertire il valore null in int");
+                throw new Exception("Unable to convert null to int.");
             int? nullable = ToIntN(value);
             if (nullable.HasValue)
                 return nullable.Value;
-            throw new Exception(string.Format("Impossibile convertire il valore {0} in int", value));
+            throw new Exception(string.Format("Unable to convert {0} to int.", value));
         }
         public static int? ToIntN(this object value)
         {
