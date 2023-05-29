@@ -202,11 +202,16 @@ namespace cLibrary.WinCustomControl.LogProcess
 
             if (err == 0 && abort == 0)
             {
+                AddLogElement(new cLogElement("FINE", 0, string.Empty, cLogSeverity.Message, "Tutte le operazioni sono state completate correttamente"));
                 lblTitle.Text = "Tutte le operazioni sono state completate correttamente";
                 _result = DialogResult.OK;
             }
             else
-                lblTitle.Text = String.Format("Completate {0} operazioni con successo, {1} operazioni complete con errori, {2} operazioni interrotte ", total - err, err, abort);
+            {
+                var msg = String.Format("Completate {0} operazioni con successo, {1} operazioni complete con errori, {2} operazioni interrotte ", total - err, err, abort);
+                AddLogElement(new cLogElement("FINE", 0, string.Empty, cLogSeverity.Message, msg));
+                lblTitle.Text = msg;
+            }
             if (OnSuccessfulCompletion != null && total > err)
                 OnSuccessfulCompletion(this, total, err, _tasks);
 

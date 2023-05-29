@@ -18,7 +18,7 @@ namespace cLibrary.WinCustomControl.LogProcess
         private object _taskParams;
         private int _taskResult = -1;
         private int _progress = 0;
-
+            
         public string ShortTitle
         {
             get { return _shortTitle; }
