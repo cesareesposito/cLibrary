@@ -15,7 +15,7 @@
 		<PackageLicenseFile>license.txt</PackageLicenseFile>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageReleaseNotes>Add cTaskManager and example.</PackageReleaseNotes>
+		<PackageReleaseNotes>Add cTaskManager and examples.</PackageReleaseNotes>
 	</PropertyGroup>
 
 	<ItemGroup>
