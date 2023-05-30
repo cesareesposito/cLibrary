@@ -14,9 +14,6 @@ The cLibrary library is distributed under the MIT license. Please refer to the L
 
 
 ##Contact
+
 Help me to improve it, for any questions or support requests, you can reach me at cesareuni88@gmail.com.
 We hope you find the cLibrary library useful in your project. Thank you for using it!
-
-##How to use
-
-You'll find examples of how to use it in NuGet Package Explorer in the "docs" folder
