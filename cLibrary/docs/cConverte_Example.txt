@@ -1,8 +1,8 @@
-﻿using cLibrary.Helper;
+using cLibrary.Helper;
 
 namespace Test
 {
-    internal class cConverteExample
+    internal class cConverte_Example
     {
         public void Example()
         {

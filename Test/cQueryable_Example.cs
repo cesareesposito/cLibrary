@@ -1,32 +1,19 @@
-﻿
-##HOW TO USE
-
-##cCovert
-using csLibrary.extensions;
-
-string numberString = "10";
-int n1 = numberString.ToInt();
-Console.WriteLine(n1);  // Output: 10
-
-string date = "2023-05-27";
-DateTime dateTime = date.ToDateTime();
-Console.WriteLine(dateTime);  // Output: 2023-05-27 00:00:00
-
-##cQueryable
+﻿using cLibrary.Helper;
+using cLibrary.Models;
 class Dto
 {
     public int Id { get; set; }
     public string Name { get; set; }
 }
-class Filter : FilterBase { }
+class Filter : cLibrary.Models.Base.Filter { }
 class Service
 {
     private List<Dto> dtos = new()
-    {
-        new Dto { Id = 1, Name = "Mario" },
-        new Dto { Id = 2, Name = "Rossi" }
-    };
-    async Task<DataSource<Dto>> Get()
+        {
+            new Dto { Id = 1, Name = "Mario" },
+            new Dto { Id = 2, Name = "Rossi" }
+        };
+    public async Task<DataSource<Dto>> Get()
     {
         var filter = new Filter()
         {
@@ -36,8 +23,11 @@ class Service
             //cLibrary.models.Enums.SortDirection.Ascending = 0
             //SortOrder = cLibrary.models.Enums.SortDirection.Descending,
             //or
-            SortOrder = (cLibrary.models.Enums.SortDirection)1
+            SortOrder = cLibrary.Models.Enums.SortDirection.Descending
         };
+
+        dtos.cForEach(it => it.Name = "3333");
+
         var result = dtos
             .AsQueryable()
             .ApplyBaseFilterAsync(filter);

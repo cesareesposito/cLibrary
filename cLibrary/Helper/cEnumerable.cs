@@ -1,7 +1,4 @@
-﻿
-using System.Reflection;
-
-namespace cLibrary.Helper
+﻿namespace cLibrary.Helper
 {
     public static class cEnumerableExtensions
     {

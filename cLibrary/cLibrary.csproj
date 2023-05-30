@@ -5,29 +5,52 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>cLibrary</PackageId>
-		<Version>1.2.0</Version>
+		<Version>1.2.1</Version>
 		<Authors>Cesare Esposito</Authors>
-		<Company></Company>		
-		<Description>			 
+		<Company></Company>
+		<Description>
 			This library has been designed to improve development efficiency and simplify common tasks within your applications.
 		</Description>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseFile>license.txt</PackageLicenseFile>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
-		<PackageReleaseNotes>Add cTaskManager</PackageReleaseNotes>
+		<PackageReleaseNotes>Add cTaskManager and example.</PackageReleaseNotes>
 	</PropertyGroup>
 
-		<ItemGroup>
-
-			<None Include="docs\readme.md" Pack="true" PackagePath="\" />
-			<None Include="docs\license.txt" Pack="true" PackagePath="\" />
-		
+	<ItemGroup>
+		<PackageReference Include="EPPlus" Version="6.2.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
 	</ItemGroup>
 
-		<ItemGroup>
-		  <PackageReference Include="EPPlus" Version="6.2.4" />
-		  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
-		</ItemGroup>
+	<ItemGroup>
+		<Content Include="docs/**/*.*" copyToOutput="true">
+			<IncludeInPackage>true</IncludeInPackage>
+			<CopyToOutput>true</CopyToOutput>
+			<BuildAction>Content</BuildAction>
+			<copyToOutput>true</copyToOutput>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="docs\cConverte_Example.txt" />
+	  <None Remove="docs\cQueryable_Example.txt" />
+	  <None Remove="docs\cTaskManager_Example.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Include="docs\cTaskManager_Example.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="license.txt" />
+	  <Content Include="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="license.txt" Pack="true" PackagePath="\" />
+	  <None Update="readme.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 </Project>

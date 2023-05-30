@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace cLibrary.Models.Task
 {
-    public class TaskDescriptor
+    public abstract class TaskDescriptor
     {
         private string _shortTitle;
         private string _title;
