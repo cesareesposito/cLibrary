@@ -52,7 +52,7 @@ namespace cLibrary.Helper
         public void RunTasks()
         {
             if (_i >= _tasks.Count)
-            { SummarizeTasks(); return; }
+            { TasksCompleted(); return; }
 
             _currentTask = _tasks[_i++];
             while (_currentTask == null && _i < _tasks.Count)
@@ -61,7 +61,7 @@ namespace cLibrary.Helper
             if (_currentTask == null && _i < _tasks.Count)
                 return;
 
-            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, LogSeverity.Info, "RunTasks 1"));
+            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, LogSeverity.Info, _currentTask.Title));
 
             if (_currentTask.TaskDelegate == null)
             {
@@ -91,7 +91,7 @@ namespace cLibrary.Helper
             AddLogElement(new LogElement(_currentTask.ShortTitle, 0, null, _currentTask.TaskResult.LogSeverity, message));
             RunTasks(); // Next task
         }
-        private void SummarizeTasks()
+        private void TasksCompleted()
         {
             int err = 0;
             int total = _tasks.Count;
@@ -109,12 +109,11 @@ namespace cLibrary.Helper
             });
 
             if (err == 0 && abort == 0)
-                AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Info, "All operations have been completed successfully"));
+                AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Info, "All operations have been completed successfully."));
             else
             {
-                var msg = String.Format("Completate {0} operazioni con successo, {1} operazioni complete con errori, {2} operazioni interrotte ", total - err, err, abort);
-                AddLogElement(new LogElement("FINE", 0, string.Empty, LogSeverity.Warning, msg));
-
+                var msg = String.Format("Completed {0} operations successfully, {1} operations completed with errors, {2} operations aborted.", total - err, err, abort);
+                AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Warning, msg));
             }
             if (OnCompleted != null && total > err)
                 OnCompleted(_tasks, total, err);
