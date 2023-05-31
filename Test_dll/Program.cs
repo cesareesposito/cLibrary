@@ -76,7 +76,7 @@ people.cForEach(it =>
     // Fai qualcosa
 });
 
-var foundResult = list.cForEach(it =>
+list.cForEach(it =>
 {
     if (it == 3)
         return "trovato";
