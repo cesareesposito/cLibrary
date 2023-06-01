@@ -34,6 +34,12 @@ namespace cLibrary.Helper
             foreach (T element in source)
                 action(element);
         }
+       
+        public static async Task cForEachAsync<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            await Task.WhenAll(source.Select(element => Task.Run(() => action(element))));
+        }
+
 
         //public static TResult cForEach<T, TResult>(this IEnumerable<T> source, Func<T, TResult> action)
         //{
