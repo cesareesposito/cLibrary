@@ -23,7 +23,7 @@
 	  <None Remove="docs\cTaskManager_Example.txt" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 	  <Content Include="docs\cConverte_Example.txt">	    		  
 		  <IncludeInPackage>true</IncludeInPackage>
 	  </Content>
@@ -33,7 +33,7 @@
 	  <Content Include="docs\cTaskManager_Example.txt">
 		  <CopyToPublishDirectory>Always</CopyToPublishDirectory>
 	  </Content>
-	</ItemGroup>
+	</ItemGroup>-->
 	<ItemGroup>
 		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
 		<None Include="docs\license.txt" Pack="true" PackagePath="\" />
