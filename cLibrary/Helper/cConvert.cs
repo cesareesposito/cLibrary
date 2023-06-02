@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Reflection;
+using System.Web;
 
 namespace cLibrary.Helper
 {
@@ -11,6 +13,51 @@ namespace cLibrary.Helper
         }
 
         #region String
+
+        public static string ToQueryString<T>(this T obj)
+        {
+            var querystring = new List<string>();
+
+            var properties = typeof(T).GetProperties();
+
+            foreach (var property in properties)
+            {
+                var value = property.GetValue(obj);
+
+                if (value != null)
+                {
+                    var encodedValue = GetEncodedValue(value);
+                    var encodedName = GetEncodedName(property);
+
+                    querystring.Add($"{encodedName}={encodedValue}");
+                }
+            }
+
+            return string.Join("&", querystring);
+        }
+
+        private static string GetEncodedValue(object value)
+        {
+            if (value is DateTime dateTimeValue)
+            {
+                return HttpUtility.UrlEncode(dateTimeValue.ToString("yyyy-MM-ddTHH:mm:ss"));
+            }
+
+            if (value is IEnumerable<object> enumerableValue)
+            {
+                var encodedItems = enumerableValue.Select(item => HttpUtility.UrlEncode(item.ToString()));
+                return string.Join("&", encodedItems);
+            }
+
+            return HttpUtility.UrlEncode(value.ToString());
+        }
+
+        private static string GetEncodedName(PropertyInfo property)
+        {
+            return HttpUtility.UrlEncode(property.Name);
+        }
+
+
         public static bool IsNotNullOrEmpty(this string value)
         {
             return value == null ? false : !string.IsNullOrEmpty(value.Trim());

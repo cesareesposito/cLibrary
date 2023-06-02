@@ -19,6 +19,8 @@ var numResultp = people.cForEach(it =>
 
 Console.WriteLine(numResultp);
 
+var sr = people[1].ToQueryString();
+
 var sResultp = list.cForEach(it =>
 {
     return "1";

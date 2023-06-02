@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>cLibrary</PackageId>
-		<Version>1.3.0</Version>
+		<Version>1.3.2</Version>
 		<Authors>Cesare Esposito</Authors>
 		<Company></Company>
 		<Description>
@@ -37,6 +37,10 @@
 	<ItemGroup>
 		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
 		<None Include="docs\license.txt" Pack="true" PackagePath="\" />
+		
+		<None Include="docs\cConverte_Example.txt" Pack="true" PackagePath="\Example" />
+		<None Include="docs\cQueryable_Example.txt" Pack="true" PackagePath="\Example" />
+		<None Include="docs\cTaskManager_Example.txt" Pack="true" PackagePath="\Example" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="EPPlus" Version="6.2.4" />

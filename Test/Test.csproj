@@ -12,10 +12,14 @@
     <Content Remove="C:\Users\Cesare Esposito\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\cQueryable_Example.txt" />
     <Content Remove="C:\Users\Cesare Esposito\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\cTaskManager_Example.txt" />
     <Content Remove="C:\Users\Cesare Esposito\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\license.txt" />
+    <Content Remove="C:\Users\i5-4690k\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\cConverte_Example.txt" />
+    <Content Remove="C:\Users\i5-4690k\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\cQueryable_Example.txt" />
+    <Content Remove="C:\Users\i5-4690k\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\cTaskManager_Example.txt" />
+    <Content Remove="C:\Users\i5-4690k\.nuget\packages\clibrary\1.2.7\contentFiles\any\net6.0\docs\license.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="cLibrary" Version="1.2.7" />
+    <PackageReference Include="cLibrary" Version="1.3.1" />
   </ItemGroup>
 
 </Project>
