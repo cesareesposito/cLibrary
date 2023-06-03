@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cWinForm", "cWinForm\cWinForm.csproj", "{1E4677AC-FDC5-4EBA-9E0C-CAB439439D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test_dll", "Test_dll\Test_dll.csproj", "{E8FF29D8-E7D4-4E36-9276-C51FA6DB90A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test_dll", "Test_dll\Test_dll.csproj", "{E8FF29D8-E7D4-4E36-9276-C51FA6DB90A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECHO.DB", "ECHO.DB\ECHO.DB.csproj", "{0C263DA3-19ED-4544-9E02-7ED372ED6F11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ECHO.BLL", "ECHO.BLL\ECHO.BLL.csproj", "{725D07A7-1A29-4B88-942E-D266535ACEC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{E8FF29D8-E7D4-4E36-9276-C51FA6DB90A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8FF29D8-E7D4-4E36-9276-C51FA6DB90A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8FF29D8-E7D4-4E36-9276-C51FA6DB90A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C263DA3-19ED-4544-9E02-7ED372ED6F11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C263DA3-19ED-4544-9E02-7ED372ED6F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C263DA3-19ED-4544-9E02-7ED372ED6F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C263DA3-19ED-4544-9E02-7ED372ED6F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{725D07A7-1A29-4B88-942E-D266535ACEC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725D07A7-1A29-4B88-942E-D266535ACEC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725D07A7-1A29-4B88-942E-D266535ACEC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725D07A7-1A29-4B88-942E-D266535ACEC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<PackageId>cLibrary</PackageId>
-		<Version>2.0.0</Version>
+		<Version>2.0.1</Version>
 		<Authors>Cesare Esposito</Authors>
 		<Company></Company>
 		<Description>
@@ -14,22 +14,27 @@
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseFile>license.txt</PackageLicenseFile>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageReleaseNotes>Improve cForEach, add async methods.</PackageReleaseNotes>
+		<PackageReleaseNotes>Fix and improve cQueryableExtensions.</PackageReleaseNotes>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<None Remove="docs\*" />
-	  <!--<None Remove="docs\cConverte_Example.txt" />
-	  <None Remove="docs\cQueryable_Example.txt" />
-	  <None Remove="docs\cTaskManager_Example.txt" />-->
-	</ItemGroup>
 	
 	<ItemGroup>
+		<Content Include="docs\cConverte_Example.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="docs\cQueryable_Example.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="docs\cTaskManager_Example.txt">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
-		<None Include="docs\license.txt" Pack="true" PackagePath="\" />		
+		<None Include="docs\license.txt" Pack="true" PackagePath="\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="EPPlus" Version="6.2.4" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
-	</ItemGroup>	
+	</ItemGroup>
 </Project>
