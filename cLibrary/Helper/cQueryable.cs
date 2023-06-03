@@ -14,7 +14,7 @@ namespace cLibrary.Helper
             var model = new DataSource<T>();
             model.TotalItems = filter.CountTotal ? query.Count() : 0;
 
-            if (!string.IsNullOrEmpty(filter.SortField))
+            if (filter.SortField.IsNotNullOrEmpty())
             {
                 var order = string.Format("{0} {1}", filter.SortField, (string)filter.SortOrder.Value);
                 query = query.OrderBy(order);

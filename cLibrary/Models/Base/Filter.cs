@@ -4,10 +4,10 @@ namespace cLibrary.Models.Base
 {
     public abstract class Filter
     {
-        public string SearchText { get; set; }
+        public string? SearchText { get; set; }
         public int? PageSize { get; set; }
-        public int Skip { get; set; }
-        public string SortField { get; set; }
+        public int Skip { get; set; } = 0;
+        public string SortField { get; set; }= string.Empty;
         public SortDirection SortOrder { get; set; } = SortDirection.Descending;
         public bool CountTotal { get; set; } = true;
     }    
