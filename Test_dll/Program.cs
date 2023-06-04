@@ -13,7 +13,8 @@ List<Person> people = new List<Person>
     new Person { Name = "Bob", Age = 30 },
     new Person { Name = "Charlie", Age = 35 }
 };
-
+Person p= null;
+var e = p.ToQueryString();
 
 var bll = new CompanyBll();
 var x = bll.GetAsync(new PersonFilter());

@@ -1,15 +1,29 @@
 ﻿using cLibrary.Models.Base;
 using cLibrary.Models.Messages;
+using System.Text.Json.Serialization;
 
 namespace cLibrary.Models
 {
+
+    [Serializable]
     public class OperationResult
     {
         private const string DefaultErrorMessage = "Si è verificato un errore imprevisto nell'elaborazione della richiesta. Contattare il supporto tecnico per maggiori informazioni.";
         private const string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica. Contattare il supporto tecnico per maggiori informazioni.";
         public const string DefaultMessage = "Operazione completata.";
 
-        #region altri costruttori        
+        #region altri costruttori    
+        [JsonConstructor]
+        public OperationResult() { }
+        //[JsonConstructor]
+        //public OperationResult(bool success, MessageModel message, dynamic data, string exMessage)
+        //{
+        //    this.Success = success;
+        //    this.Message = message;
+        //    this.Data = data;
+        //    this.ExMessage = exMessage;
+        //}
+
         public OperationResult(bool result = false)
         {
             this.Success = result;
@@ -18,13 +32,13 @@ namespace cLibrary.Models
                  ? new WarnMessage(DefaultWarningMessage)
                  : new ErrorMessage(DefaultErrorMessage);
         }
-        public OperationResult(Func<int?> saveFunc, string errorMessage = null, string successMessage = null, dynamic data = null)
+        public OperationResult(Func<int?> saveFunc, string errorMessage = DefaultErrorMessage, string successMessage = DefaultMessage, dynamic data = null)
         {
             try
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
                 this.Success = _rowWrited > 0;
-                this.Message = Success ? new SuccessMessage() { Detail= successMessage }
+                this.Message = Success ? new SuccessMessage() { Detail = successMessage }
                     : _rowWrited == 0
                     ? new WarnMessage(DefaultWarningMessage)
                     : new ErrorMessage(errorMessage ?? DefaultErrorMessage);

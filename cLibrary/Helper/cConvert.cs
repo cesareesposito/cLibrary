@@ -16,6 +16,8 @@ namespace cLibrary.Helper
 
         public static string ToQueryString<T>(this T obj)
         {
+            if(obj is null) return string.Empty;
+
             var querystring = new List<string>();
 
             var properties = typeof(T).GetProperties();
