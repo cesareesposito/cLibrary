@@ -7,6 +7,7 @@ namespace cLibrary.Models.Enums
     //    Ascending = 0,
     //    Descending = 1
     //}
+    [Serializable]
     public class SortDirection : cEnum
     {
         public static SortDirection Ascending = new SortDirection("", "Ascending");

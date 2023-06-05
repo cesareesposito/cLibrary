@@ -2,6 +2,7 @@
 
 namespace cLibrary.Models.Base
 {
+    [Serializable]
     public abstract class Filter
     {
         public string? SearchText { get; set; }
