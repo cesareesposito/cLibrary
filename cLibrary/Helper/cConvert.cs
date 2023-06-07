@@ -64,6 +64,10 @@ namespace cLibrary.Helper
         {
             return value == null ? false : !string.IsNullOrEmpty(value.Trim());
         }
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return !value.IsNotNullOrEmpty();
+        }
         #endregion
 
         #region Number 
