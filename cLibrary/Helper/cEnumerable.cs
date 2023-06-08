@@ -39,33 +39,5 @@ namespace cLibrary.Helper
         {
             await Task.WhenAll(source.Select(element => Task.Run(() => action(element))));
         }
-
-
-        //public static TResult cForEach<T, TResult>(this IEnumerable<T> source, Func<T, TResult> action)
-        //{
-        //    bool returnResult = false;
-        //    TResult result = default(TResult);
-
-        //    foreach (var element in source)
-        //    {
-        //        TResult currentResult = action(element);
-
-        //        if (!EqualityComparer<TResult>.Default.Equals(currentResult, default(TResult)))
-        //        {
-        //            returnResult = true;
-        //            result = currentResult;
-        //            break;
-        //        }
-        //    }
-
-        //    if (returnResult)
-        //    {
-        //        return result;
-        //    }
-
-        //    return default(TResult);
-        //}
-
-
     }
 }
