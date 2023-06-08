@@ -16,7 +16,7 @@ namespace cLibrary.Helper
 
         public static string ToQueryString<T>(this T obj)
         {
-            if(obj is null) return string.Empty;
+            if (obj is null) return string.Empty;
 
             var querystring = new List<string>();
 
@@ -35,7 +35,7 @@ namespace cLibrary.Helper
                 }
             }
 
-            return string.Join("&", querystring);
+            return "?" + string.Join("&", querystring);
         }
 
         private static string GetEncodedValue(object value)
