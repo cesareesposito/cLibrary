@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/cWinForm/cWinForm.csproj
+/ECHO.BLL/ECHO.BLL.csproj
+/ECHO.DB/ECHO.DB.csproj
+/Test/Test.csproj
+/Test_dll/Test_dll.csproj
