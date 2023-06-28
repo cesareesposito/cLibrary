@@ -34,11 +34,6 @@ namespace cLibrary.Helper
             return query.ApplyBaseFilterAsync(filter).Result;
         }
 
-        public static IEnumerable<T> OrderBy<T>(this IEnumerable<T> enumerable, string orderBy)
-        {
-            return enumerable.AsQueryable().OrderBy(orderBy).AsEnumerable();
-        }
-
         public static IQueryable<T> OrderBy<T>(this IQueryable<T> collection, string orderBy)
         {
             foreach (OrderByInfo orderByInfo in ParseOrderBy(orderBy))
