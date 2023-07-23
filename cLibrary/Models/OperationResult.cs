@@ -14,7 +14,7 @@ namespace cLibrary.Models
 
         #region altri costruttori    
         [JsonConstructor]
-        public OperationResult() { }
+        public OperationResult() { Message = new ErrorMessage(DefaultErrorMessage); }
         //[JsonConstructor]
         //public OperationResult(bool success, MessageModel message, dynamic data, string exMessage)
         //{

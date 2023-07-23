@@ -3,7 +3,7 @@
 namespace cLibrary.Models.Base
 {
     [Serializable]
-    public abstract class MessageModel
+    public class MessageModel
     {
         public string Severity { get; protected set; } = LogSeverity.Success.Severity;
         public string Summary { get; protected set; } = LogSeverity.Success.Summary;
