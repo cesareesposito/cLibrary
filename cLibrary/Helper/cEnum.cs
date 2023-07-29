@@ -82,5 +82,14 @@ namespace cLibrary.Helper
 
             return attribute == null ? value.ToString() : attribute.Description;
         }
+        public static T[] GetList<T>() where T : struct, IConvertible
+        {
+            try
+            {
+                T[] lista = (T[])System.Enum.GetValues(typeof(T));
+                return lista;
+            }
+            catch { return new T[] { }; }
+        }
     }
 }
