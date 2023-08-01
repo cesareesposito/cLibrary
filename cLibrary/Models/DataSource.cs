@@ -1,8 +1,8 @@
 ﻿namespace cLibrary.Models
 {
-    public class DataSource<T>
+    public class DataTable<T>
     {
-        public DataSource()
+        public DataTable()
         {
             Items = new List<T>();
         }

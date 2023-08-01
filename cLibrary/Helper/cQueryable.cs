@@ -9,9 +9,9 @@ namespace cLibrary.Helper
 {  
     public static class cQueryableExtensions
     {
-        public static async Task<DataSource<T>> ApplyBaseFilterAsync<T>(this IQueryable<T> query, Filter filter)
+        public static async Task<DataTable<T>> ApplyBaseFilterAsync<T>(this IQueryable<T> query, Filter filter)
         {
-            var model = new DataSource<T>();
+            var model = new DataTable<T>();
             model.TotalItems = filter.CountTotal ? query.Count() : 0;
 
             if (filter.SortField.IsNotNullOrEmpty())
@@ -29,7 +29,7 @@ namespace cLibrary.Helper
             model.Items = query is IAsyncDisposable ? await query.ToListAsync() : query.ToList();
             return model;
         }
-        public static DataSource<T> ApplyBaseFilter<T>(this IQueryable<T> query, Filter filter)
+        public static DataTable<T> ApplyBaseFilter<T>(this IQueryable<T> query, Filter filter)
         {
             return query.ApplyBaseFilterAsync(filter).Result;
         }
