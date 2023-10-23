@@ -8,9 +8,9 @@ namespace cLibrary.Models
     [Serializable]
     public class OperationResult
     {
-        public const string DefaultErrorMessage = "Si è verificato un errore imprevisto nell'elaborazione della richiesta. Contattare il supporto tecnico per maggiori informazioni.";
-        public const string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica. Contattare il supporto tecnico per maggiori informazioni.";
-        public const string DefaultMessage = "Operazione completata.";
+        public static string DefaultErrorMessage = "Si è verificato un errore imprevisto nell'elaborazione della richiesta. Contattare il supporto tecnico per maggiori informazioni.";
+        public static string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica. Contattare il supporto tecnico per maggiori informazioni.";
+        public static string DefaultMessage = "Operazione completata.";
 
         #region altri costruttori    
         [JsonConstructor]
@@ -32,13 +32,13 @@ namespace cLibrary.Models
                  ? new WarnMessage(DefaultWarningMessage)
                  : new ErrorMessage(DefaultErrorMessage);
         }
-        public OperationResult(Func<int?> saveFunc, string errorMessage = DefaultErrorMessage, string successMessage = DefaultMessage, dynamic data = null)
+        public OperationResult(Func<int?> saveFunc, string errorMessage = null, string successMessage = null, dynamic data = null)
         {
             try
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
                 this.Success = _rowWrited > 0;
-                this.Message = Success ? new SuccessMessage() { Detail = successMessage }
+                this.Message = Success ? new SuccessMessage() { Detail = successMessage ?? DefaultMessage }
                     : _rowWrited == 0
                     ? new WarnMessage(DefaultWarningMessage)
                     : new ErrorMessage(errorMessage ?? DefaultErrorMessage);
