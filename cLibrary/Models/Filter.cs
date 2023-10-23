@@ -1,6 +1,6 @@
 ﻿using cLibrary.Models.Enums;
 
-namespace cLibrary.Models.Base
+namespace cLibrary.Models
 {
     [Serializable]
     public abstract class Filter

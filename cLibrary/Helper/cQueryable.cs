@@ -2,11 +2,10 @@
 using System.Linq.Expressions;
 using System.Reflection;
 using cLibrary.Models;
-using cLibrary.Models.Base;
 using cLibrary.Models.Enums;
 
 namespace cLibrary.Helper
-{  
+{
     public static class cQueryableExtensions
     {
         public static async Task<DataTable<T>> ApplyBaseFilterAsync<T>(this IQueryable<T> query, Filter filter)

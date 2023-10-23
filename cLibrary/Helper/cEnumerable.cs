@@ -1,7 +1,4 @@
-﻿using cLibrary.Models;
-using cLibrary.Models.Base;
-
-namespace cLibrary.Helper
+﻿namespace cLibrary.Helper
 {
     public static class cEnumerableExtensions
     {

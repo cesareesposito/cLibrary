@@ -1,7 +1,4 @@
-﻿using cLibrary.Helper;
-using System.ComponentModel;
-
-namespace cLibrary.Models.Enums
+﻿namespace cLibrary.Models.Enums
 {
     //public enum LogSeverity
     //{

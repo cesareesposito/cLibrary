@@ -1,4 +1,4 @@
-﻿namespace cLibrary.Models.Attributes
+﻿namespace cLibrary.Attributes
 {
     public class StringValueAttribute : Attribute
     {
@@ -9,7 +9,7 @@
         #region Constructor
         public StringValueAttribute(string value)
         {
-            this.Value = value;
+            Value = value;
         }
         #endregion
     }

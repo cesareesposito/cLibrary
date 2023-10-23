@@ -1,5 +1,4 @@
-﻿using cLibrary.Models.Base;
-using cLibrary.Models.Enums;
+﻿using cLibrary.Models.Enums;
 
 namespace cLibrary.Models.Messages
 {

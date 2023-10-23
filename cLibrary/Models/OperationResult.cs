@@ -1,5 +1,4 @@
-﻿using cLibrary.Models.Base;
-using cLibrary.Models.Messages;
+﻿using cLibrary.Models.Messages;
 using System.Text.Json.Serialization;
 
 namespace cLibrary.Models
@@ -8,8 +7,8 @@ namespace cLibrary.Models
     [Serializable]
     public class OperationResult
     {
-        public static string DefaultErrorMessage = "Si è verificato un errore imprevisto nell'elaborazione della richiesta. Contattare il supporto tecnico per maggiori informazioni.";
-        public static string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica. Contattare il supporto tecnico per maggiori informazioni.";
+        public static string DefaultErrorMessage = "Si è verificato un errore nell'elaborazione della richiesta.";
+        public static string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica.";
         public static string DefaultMessage = "Operazione completata.";
 
         #region altri costruttori    
