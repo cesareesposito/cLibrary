@@ -5,9 +5,9 @@ using cLibrary.Models;
 using cLibrary.Models.Enums;
 
 namespace cLibrary.Helper
-{
+{    
     public static class cQueryableExtensions
-    {
+    { 
         public static async Task<DataTable<T>> ApplyBaseFilterAsync<T>(this IQueryable<T> query, Filter filter)
         {
             var model = new DataTable<T>();
@@ -122,6 +122,6 @@ namespace cLibrary.Helper
             public SortDirection Direction { get; set; }
             public bool Initial { get; set; }
         }
-        
+
     }
 }
