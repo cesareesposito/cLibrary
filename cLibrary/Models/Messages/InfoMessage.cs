@@ -2,7 +2,7 @@
 
 namespace cLibrary.Models.Messages
 {
-    internal class InfoMessage : MessageModel
+    public class InfoMessage : MessageModel
     {
         public InfoMessage(string detail = "")
         {
