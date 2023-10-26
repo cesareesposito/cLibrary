@@ -37,7 +37,7 @@ namespace cLibrary.Models
                 this.ExMessage = ex.InnerException?.Message ?? ex.Message;
                 this.Message = new ErrorMessage(ExMessage);
 #else
-                this.Message = new ErrorMessage(errorMessage ?? DefaultErrorMessage);
+                this.Message = new ErrorMessage(errorMessage ?? DefaultMessages.DefaultErrorMessage);
                 this.ExMessage = ex.InnerException?.Message ?? ex.Message;
 #endif
             }
@@ -73,7 +73,7 @@ namespace cLibrary.Models
             this.ExMessage = ex.InnerException?.Message ?? ex.Message;
             this.Message = new ErrorMessage(ExMessage);
 #else
-                this.Message = new ErrorMessage(errorMessage ?? DefaultErrorMessage);
+                this.Message = new ErrorMessage(errorMessage ?? DefaultMessages.DefaultErrorMessage);
                 this.ExMessage = ex.InnerException?.Message ?? ex.Message;
 #endif
         }
