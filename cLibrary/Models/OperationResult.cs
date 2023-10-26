@@ -7,21 +7,17 @@ namespace cLibrary.Models
     [Serializable]
     public class OperationResult
     {
-        public static string DefaultErrorMessage = "Si è verificato un errore nell'elaborazione della richiesta.";
-        public static string DefaultWarningMessage = "L'operazione non ha prodotto nessuna modifica.";
-        public static string DefaultMessage = "Operazione completata.";
-
         #region altri costruttori    
         [JsonConstructor]
-        public OperationResult() { Message = new ErrorMessage(DefaultErrorMessage); }       
+        public OperationResult() { Message = new ErrorMessage(DefaultMessages.DefaultErrorMessage); }       
 
         public OperationResult(bool result = false)
         {
             this.Success = result;
             this.Message = Success ? new SuccessMessage()
                  : _rowWrited == 0
-                 ? new WarnMessage(DefaultWarningMessage)
-                 : new ErrorMessage(DefaultErrorMessage);
+                 ? new WarnMessage(DefaultMessages.DefaultWarningMessage)
+                 : new ErrorMessage(DefaultMessages.DefaultErrorMessage);
         }
         public OperationResult(Func<int?> saveFunc, string errorMessage = null, string successMessage = null, dynamic data = null)
         {
@@ -29,10 +25,10 @@ namespace cLibrary.Models
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
                 this.Success = _rowWrited > 0;
-                this.Message = Success ? new SuccessMessage() { Detail = successMessage ?? DefaultMessage }
+                this.Message = Success ? new SuccessMessage() { Detail = successMessage ?? DefaultMessages.DefaultMessage }
                     : _rowWrited == 0
-                    ? new WarnMessage(DefaultWarningMessage)
-                    : new ErrorMessage(errorMessage ?? DefaultErrorMessage);
+                    ? new WarnMessage(DefaultMessages.DefaultWarningMessage)
+                    : new ErrorMessage(errorMessage ?? DefaultMessages.DefaultErrorMessage);
             }
             catch (Exception ex)
             {
