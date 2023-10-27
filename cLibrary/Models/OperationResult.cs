@@ -31,6 +31,7 @@ namespace cLibrary.Models
                  ? new cLogWarning()
                  : new cLogError(errorMessage);
                 this.Message = this.ExMessage.Detail;
+                this.Data = data;
             }
             catch (Exception ex)
             {
