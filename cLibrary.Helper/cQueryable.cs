@@ -2,7 +2,8 @@
 using System.Linq.Expressions;
 using System.Reflection;
 using cLibrary.Models;
-using cLibrary.Models.Enums;
+using cLibrary.Enums;
+using cLibrary.Extensions;
 
 namespace cLibrary.Helper
 {    
@@ -61,14 +62,14 @@ namespace cLibrary.Helper
 
             if (!orderByInfo.Initial && collection is IOrderedQueryable<T>)
             {
-                if (orderByInfo.Direction == SortDirection.Ascending)
+                if (orderByInfo.Direction == cSortDirection.Ascending)
                     methodName = "ThenBy";
                 else
                     methodName = "ThenByDescending";
             }
             else
             {
-                if (orderByInfo.Direction == SortDirection.Ascending)
+                if (orderByInfo.Direction == cSortDirection.Ascending)
                     methodName = "OrderBy";
                 else
                     methodName = "OrderByDescending";
@@ -104,10 +105,10 @@ namespace cLibrary.Helper
                 if (String.IsNullOrEmpty(prop))
                     throw new ArgumentException("Invalid Property. Order By Format: Property, Property2 ASC, Property2 DESC");
 
-                SortDirection dir = SortDirection.Ascending;
+                cSortDirection dir = cSortDirection.Ascending;
 
                 if (pair.Length == 2)
-                    dir = ("desc".Equals(pair[1].Trim(), StringComparison.OrdinalIgnoreCase) ? SortDirection.Descending : SortDirection.Ascending);
+                    dir = ("desc".Equals(pair[1].Trim(), StringComparison.OrdinalIgnoreCase) ? cSortDirection.Descending : cSortDirection.Ascending);
 
                 yield return new OrderByInfo() { PropertyName = prop, Direction = dir, Initial = initial };
 
@@ -119,7 +120,7 @@ namespace cLibrary.Helper
         private class OrderByInfo
         {
             public string PropertyName { get; set; }
-            public SortDirection Direction { get; set; }
+            public cSortDirection Direction { get; set; }
             public bool Initial { get; set; }
         }
 

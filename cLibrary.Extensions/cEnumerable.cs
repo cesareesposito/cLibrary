@@ -1,4 +1,4 @@
-﻿namespace cLibrary.Helper
+﻿namespace cLibrary.Extensions
 {
     public static class cEnumerableExtensions
     {

@@ -1,8 +1,6 @@
-﻿using cLibrary.Attributes;
-
-namespace cLibrary.Models.Enums
+﻿namespace cLibrary.Enums
 {
-    public enum SortDirection
+    public enum cSortDirection
     {
         [StringValue("")]
         Ascending = 0,

@@ -1,6 +1,6 @@
-﻿using cLibrary.Models.Enums;
+﻿using cLibrary.Models;
 
-namespace cLibrary.Models.Task
+namespace cLibrary.Helper.Task
 {
     public abstract class TaskDescriptor
     {
@@ -9,7 +9,7 @@ namespace cLibrary.Models.Task
         //private cTaskManager _task;
         private ParameterizedThreadStart _taskDelegate;
         private object _taskParams;
-        private TaskResult _taskResult = TaskResult.ABORT;
+        private cTaskResult _taskResult = cTaskResult.ABORT;
         private int _progress = 0;
 
         public string ShortTitle
@@ -25,7 +25,7 @@ namespace cLibrary.Models.Task
         {
             get { return _taskDelegate; }
         }
-        public TaskResult TaskResult
+        public cTaskResult TaskResult
         {
             get { return _taskResult; }
             set { _taskResult = value; }
@@ -44,7 +44,7 @@ namespace cLibrary.Models.Task
             get { return _taskParams; }
         }
 
-        public Action<LogElement> AddLogElement { get; internal set; }
+        public Action<cLogElement> AddLogElement { get; internal set; }
 
         public TaskDescriptor(string shortTitle, string title,
             object taskParams)
@@ -63,13 +63,13 @@ namespace cLibrary.Models.Task
             }
             catch
             {
-                TaskResult = TaskResult.FAILURE;
+                TaskResult = cTaskResult.FAILURE;
             }
         }
 
         public virtual void TaskWork()
         {
-            TaskResult = TaskResult.TASKEMPTY;
+            TaskResult = cTaskResult.TASKEMPTY;
         }
     }
 }

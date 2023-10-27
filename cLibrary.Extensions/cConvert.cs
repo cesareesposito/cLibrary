@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Web;
 
-namespace cLibrary.Helper
+namespace cLibrary.Extensions
 {
     public static partial class cConvertExtensions
     {

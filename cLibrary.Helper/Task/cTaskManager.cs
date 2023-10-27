@@ -1,17 +1,17 @@
-﻿using cLibrary.Models.Enums;
-using cLibrary.Models.Task;
+﻿using cLibrary.Models;
+using cLibrary.Extensions;
 
-namespace cLibrary.Helper
+namespace cLibrary.Helper.Task
 {    
     public class cTaskManager
     {
         #region definizione e riempimento del log
-        private List<LogElement> _log = new List<LogElement>();
-        public List<LogElement> Logs { get { return _log; } }
+        private List<cLogElement> _log = new List<cLogElement>();
+        public List<cLogElement> Logs { get { return _log; } }
 
-        public delegate void onLogElementDelegate(LogElement log);
+        public delegate void onLogElementDelegate(cLogElement log);
         public event onLogElementDelegate OnLogElement;
-        public void AddLogElement(LogElement log)
+        public void AddLogElement(cLogElement log)
         {
             _log.Add(log);
             if (OnLogElement != null)
@@ -61,12 +61,12 @@ namespace cLibrary.Helper
             if (_currentTask == null && _i < _tasks.Count)
                 return;
 
-            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, LogSeverity.Info, _currentTask.Title));
+            AddLogElement(new cLogElement(_currentTask.ShortTitle, 0, string.Empty, _currentTask.Title));
 
             if (_currentTask.TaskDelegate == null)
             {
-                _currentTask.TaskResult = TaskResult.TASKEMPTY;
-                AddLogElement(new LogElement(_currentTask.ShortTitle, 0, string.Empty, _currentTask.TaskResult.LogSeverity, "Task is empty."));
+                _currentTask.TaskResult = cTaskResult.TASKEMPTY;
+                AddLogElement(new cLogElement(_currentTask.ShortTitle, 0, string.Empty, "Task is empty."));
                 return;
             }
             _thread = new Thread(_currentTask.TaskDelegate);
@@ -87,8 +87,8 @@ namespace cLibrary.Helper
         private void TaskCompleted()
         {
             _currentTask.Progress = 100;
-            var message = $"{_currentTask.Title} {(_currentTask.TaskResult == TaskResult.SUCCESS ? "- Completed." : _currentTask.TaskResult.LogSeverity.Label)}";
-            AddLogElement(new LogElement(_currentTask.ShortTitle, 0, null, _currentTask.TaskResult.LogSeverity, message));
+            var message = $"{_currentTask.Title} {(_currentTask.TaskResult == cTaskResult.SUCCESS ? " - Completed." : _currentTask.TaskResult.Label)}";
+            AddLogElement(new cLogElement(_currentTask.ShortTitle, 0, null, message));
             RunTasks(); // Next task
         }
         private void TasksCompleted()
@@ -97,23 +97,23 @@ namespace cLibrary.Helper
             int total = _tasks.Count;
             int abort = 0;
             //pBar.Value = 100;
-            AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Info, "All operations have been completed."));
+            AddLogElement(new cLogElement("Completed", 0, string.Empty, "All operations have been completed."));
 
             _tasks.cForEach(it =>
             {
-                if (it.TaskResult == TaskResult.ABORT)
+                if (it.TaskResult == cTaskResult.ABORT)
                     abort++;
                 else
-                    if (it.TaskResult != TaskResult.SUCCESS)
+                    if (it.TaskResult != cTaskResult.SUCCESS)
                     err++;
             });
 
             if (err == 0 && abort == 0)
-                AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Info, "All operations have been completed successfully."));
+                AddLogElement(new cLogElement("Completed", 0, string.Empty, "All operations have been completed successfully."));
             else
             {
                 var msg = String.Format("Completed {0} operations successfully, {1} operations completed with errors, {2} operations aborted.", total - err, err, abort);
-                AddLogElement(new LogElement("Completed", 0, string.Empty, LogSeverity.Warning, msg));
+                AddLogElement(new cLogElement("Completed", 0, string.Empty, msg));
             }
             if (OnCompleted != null && total > err)
                 OnCompleted(_tasks, total, err);

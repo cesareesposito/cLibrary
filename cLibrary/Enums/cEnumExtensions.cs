@@ -1,10 +1,22 @@
-﻿using cLibrary.Attributes;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Reflection;
 
-
-namespace cLibrary.Helper
+namespace cLibrary.Enums
 {
+    public class StringValueAttribute : Attribute
+    {
+        #region Properties
+        public string Value { get; protected set; }
+        #endregion
+
+        #region Constructor
+        public StringValueAttribute(string value)
+        {
+            Value = value;
+        }
+        #endregion
+    }
+
     public static class cEnumExtensions
     {
         public static string GetStringValue(this Enum value)

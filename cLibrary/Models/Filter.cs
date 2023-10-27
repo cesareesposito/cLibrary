@@ -1,4 +1,4 @@
-﻿using cLibrary.Models.Enums;
+﻿using cLibrary.Enums;
 
 namespace cLibrary.Models
 {
@@ -9,7 +9,7 @@ namespace cLibrary.Models
         public int? PageSize { get; set; }
         public int Skip { get; set; } = 0;
         public string? SortField { get; set; }
-        public SortDirection SortOrder { get; set; } = SortDirection.Descending;
+        public cSortDirection SortOrder { get; set; } = cSortDirection.Descending;
         public bool CountTotal { get; set; } = true;
 
         public static TFilter CreateFilter<TFilter, TViewModel>(TViewModel viewModel) where TFilter : Filter, new()
