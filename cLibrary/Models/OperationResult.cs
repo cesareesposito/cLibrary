@@ -48,7 +48,7 @@ namespace cLibrary.Models
                     summary: _exception.Message,
                     deatail: _detail);
 #if DEBUG
-                this.Message = ex.Message;
+                this.Message = _exception.Message;
 #else
                 this.Message = errorMessage ?? MessagesModel.Error;                
 #endif
@@ -94,7 +94,7 @@ namespace cLibrary.Models
                 summary: _exception.Message,
                 deatail: _detail);
 #if DEBUG
-                this.Message = ex.Message;
+                this.Message = _exception.Message;
 #else
             this.Message = errorMessage ?? MessagesModel.Error;
 #endif
