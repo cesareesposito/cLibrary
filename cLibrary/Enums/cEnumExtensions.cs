@@ -33,7 +33,7 @@ namespace cLibrary.Enums
                 output = attrs[0].Value;
             }
 
-            return output;
+            return output ?? value.ToString();
         }
 
         public static string GetDescription(this Enum value)

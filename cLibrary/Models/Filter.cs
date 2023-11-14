@@ -6,6 +6,7 @@ namespace cLibrary.Models
     public abstract class Filter
     {
         public string? SearchText { get; set; }
+        public bool? IsDelete { get; set; }
         public int? PageSize { get; set; }
         public int Skip { get; set; } = 0;
         public string? SortField { get; set; }
