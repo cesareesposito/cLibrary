@@ -13,6 +13,9 @@ namespace cLibrary.Helper
         /// <returns></returns>        
         public byte[] MakeExcel(Dictionary<string, dynamic> dic)
         {
+            // If you use EPPlus in a noncommercial context
+            // according to the Polyform Noncommercial license:
+            //ExcelPackage.LicenseContext = "";
             using (ExcelPackage packge = new ExcelPackage())
             {
                 var offsetRow = 1;
@@ -40,11 +43,6 @@ namespace cLibrary.Helper
                         for (int j = 0; j < properties.Count; j++)
                         {
                             var val = properties[j].GetValue(ws.Value[i]);
-                            if (val is DateTime)
-                                val = ((DateTime)val).ToString();
-                            else if (val is decimal)
-                                val = ((decimal)val).ToString("c");
-
                             worksheet.Cells[i + offsetRow + 1, offsetColumns + 1].Value = val;
                             offsetColumns++;
                         }
