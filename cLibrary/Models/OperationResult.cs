@@ -25,7 +25,7 @@ namespace cLibrary.Models
             try
             {
                 this._rowWrited = saveFunc() ?? _rowWrited;
-                this.Success = _rowWrited > 0;               
+                this.Success = _rowWrited >= 0;               
                 this.ExMessage = Success ? new cLogSuccess(successMessage)
                  : _rowWrited == 0
                  ? new cLogWarning()
