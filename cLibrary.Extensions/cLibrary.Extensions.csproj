@@ -1,9 +1,40 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>Cesare Esposito</Authors>
+		<Description>
+			This library has been designed to improve development efficiency and simplify common tasks within your applications.
+		</Description>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageLicenseFile>license.txt</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/cesareesposito/cLibrary.git</PackageProjectUrl>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="docs\cConverte_Example.txt" />
+	  <None Remove="docs\cQueryable_Example.txt" />
+	  <None Remove="docs\cTaskManager_Example.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="docs\cConverte_Example.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docs\cQueryable_Example.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docs\cTaskManager_Example.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
+		<None Include="docs\license.txt" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 </Project>
