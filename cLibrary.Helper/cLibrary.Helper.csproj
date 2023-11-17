@@ -16,15 +16,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="docs\cConverte_Example.txt" />
-	  <None Remove="docs\cQueryable_Example.txt" />
-	  <None Remove="docs\cTaskManager_Example.txt" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="docs\cConverte_Example.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
 	  <Content Include="docs\cQueryable_Example.txt">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
