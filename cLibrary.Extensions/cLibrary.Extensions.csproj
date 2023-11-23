@@ -20,7 +20,7 @@
 
 	<ItemGroup>
 	  <Content Include="docs\cConverte_Example.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
 

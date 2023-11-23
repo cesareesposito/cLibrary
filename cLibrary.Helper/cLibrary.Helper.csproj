@@ -17,10 +17,10 @@
 
 	<ItemGroup>
 	  <Content Include="docs\cQueryable_Example.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Content>
 	  <Content Include="docs\cTaskManager_Example.txt">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>
 
