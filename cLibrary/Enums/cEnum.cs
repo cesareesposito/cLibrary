@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace cLibrary.Models
+namespace cLibrary.Enums
 {
     public abstract class cEnum : IComparable
     {
@@ -32,7 +32,7 @@ namespace cLibrary.Models
             return typeMatches && valueMatches;
         }
 
-        public int CompareTo(object? other) => Value.CompareTo(((cEnum)(other?? new ())).Value);
+        public int CompareTo(object? other) => Value.CompareTo(((cEnum)(other ?? new())).Value);
         public static T FromValue<T>(int value) where T : cEnum, new()
         {
             var matchingItem = parse<T, int>(value, "value", item => item.Value == value);
@@ -50,5 +50,5 @@ namespace cLibrary.Models
 
             return matchingItem;
         }
-    }   
+    }
 }

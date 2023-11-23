@@ -1,12 +1,9 @@
-﻿using cLibrary.Models.Enums;
-
-namespace cLibrary.Models.Task
+﻿namespace cLibrary.Models
 {
-    public class LogElement
+    public class cLogElement
     {
         private DateTime _timestamp;
         private string _activity;
-        private LogSeverity _severity = LogSeverity.Info;
         private int _line = 0;
         private string _obj = string.Empty;
         private string _message = string.Empty;
@@ -19,11 +16,6 @@ namespace cLibrary.Models.Task
         public string Activity
         {
             get { return _activity; }
-        }
-
-        public LogSeverity Severity
-        {
-            get { return _severity; }
         }
 
         public int Line
@@ -41,14 +33,13 @@ namespace cLibrary.Models.Task
             get { return _message; }
         }
 
-        public LogElement(string activity, int line, object obj, LogSeverity severity, string message)
+        public cLogElement(string activity, int line, object obj, string message)
         {
             _activity = activity;
             _timestamp = DateTime.Now;
             _line = line;
             if (obj != null)
                 _obj = obj.ToString();
-            _severity = severity;
             _message = message;
         }
     }

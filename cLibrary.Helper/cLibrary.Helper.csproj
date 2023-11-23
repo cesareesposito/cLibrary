@@ -4,23 +4,38 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>cLibrary</PackageId>
-		<Version>4.0.1</Version>
 		<Authors>Cesare Esposito</Authors>
-		<Company></Company>
 		<Description>
 			This library has been designed to improve development efficiency and simplify common tasks within your applications.
 		</Description>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseFile>license.txt</PackageLicenseFile>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageReleaseNotes>add CreateFilter.</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/cesareesposito/cLibrary.git</RepositoryUrl>
-		<AssemblyVersion>3.0.0.1</AssemblyVersion>
+		<FileVersion>1.0.0.1</FileVersion>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="docs\cQueryable_Example.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="docs\cTaskManager_Example.txt">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Include="docs\readme.md" Pack="true" PackagePath="\" />
 		<None Include="docs\license.txt" Pack="true" PackagePath="\" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\cLibrary.Extensions\cLibrary.Extensions.csproj" />
+		<ProjectReference Include="..\cLibrary\cLibrary.csproj" />
+	</ItemGroup>
+
 </Project>
