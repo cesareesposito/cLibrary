@@ -1,6 +1,6 @@
 ﻿using cLibrary.Enums;
 
-namespace cLibrary.Helper.Task
+namespace cLibrary.Task
 {
     public class cTaskResult : cEnum
     {

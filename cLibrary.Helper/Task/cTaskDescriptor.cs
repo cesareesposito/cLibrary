@@ -1,6 +1,6 @@
 ﻿using cLibrary.Models;
 
-namespace cLibrary.Helper.Task
+namespace cLibrary.Task
 {
     public abstract class TaskDescriptor
     {

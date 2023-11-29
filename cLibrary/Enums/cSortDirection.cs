@@ -1,10 +1,12 @@
-﻿namespace cLibrary.Enums
+﻿using System.ComponentModel;
+
+namespace cLibrary.Enums
 {
     public enum cSortDirection
     {
-        [StringValue("")]
+        [Description("")]
         Ascending = 0,
-        [StringValue("desc")]
+        [Description("desc")]
         Descending = 1
     }    
 }

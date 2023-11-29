@@ -1,7 +1,7 @@
 ﻿using cLibrary.Models;
 using cLibrary.Extensions;
 
-namespace cLibrary.Helper.Task
+namespace cLibrary.Task
 {    
     public class cTaskManager
     {
