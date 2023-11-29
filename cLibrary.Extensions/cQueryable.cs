@@ -16,7 +16,7 @@ namespace cLibrary.Helper
 
             if (filter.SortField.IsNotNullOrEmpty())
             {
-                var order = string.Format("{0} {1}", filter.SortField, filter.SortOrder.GetStringValue());
+                var order = string.Format("{0} {1}", filter.SortField, filter.SortOrder.GetDescription());
                 query = query.OrderBy(order);
 
                 if (filter.PageSize.HasValue)

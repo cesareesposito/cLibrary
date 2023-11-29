@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 
-namespace cLibrary.Enums
+namespace cLibrary.Extensions
 {
     public class StringValueAttribute : Attribute
     {
@@ -18,24 +18,7 @@ namespace cLibrary.Enums
     }
 
     public static class cEnumExtensions
-    {
-        public static string GetStringValue(this Enum value)
-        {
-            string output = null;
-            Type type = value.GetType();
-
-            FieldInfo fi = type.GetField(value.ToString());
-            StringValueAttribute[] attrs =
-               fi.GetCustomAttributes(typeof(StringValueAttribute),
-                                       false) as StringValueAttribute[];
-            if (attrs.Length > 0)
-            {
-                output = attrs[0].Value;
-            }
-
-            return output ?? value.ToString();
-        }
-
+    {     
         public static string GetDescription(this Enum value)
         {
             FieldInfo field = value.GetType().GetField(value.ToString());
