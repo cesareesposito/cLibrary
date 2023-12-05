@@ -20,6 +20,10 @@ namespace cLibrary.Models
                  : new cLogError();
             this.Message = this.ExMessage.Detail;
         }
+        public OperationResult(bool success, string errorMessage = null, string successMessage = null, dynamic data = null)
+            : this(()=> (success?1:0), errorMessage, successMessage) {
+            this.Data = data;
+        }
         public OperationResult(Func<int?> saveFunc, string errorMessage = null, string successMessage = null, dynamic data = null)
         {
             try
