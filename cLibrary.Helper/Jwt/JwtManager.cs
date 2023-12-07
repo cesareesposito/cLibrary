@@ -1,5 +1,6 @@
 ﻿using cLibrary.Models;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -101,7 +102,7 @@ namespace cLibrary.Jwt
                 SecurityToken validatedToken;
                 ClaimsPrincipal claimsPrincipal = tokenHandler.ValidateToken(jwtToken, validationParameters, out validatedToken);
 
-                return new OperationResult(() => 1, data: claimsPrincipal);
+                return new OperationResult(true, data: JsonConvert.SerializeObject(claimsPrincipal));
             }
             catch (Exception ex)
             {
