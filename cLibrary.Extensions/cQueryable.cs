@@ -3,9 +3,8 @@ using System.Linq.Expressions;
 using System.Reflection;
 using cLibrary.Models;
 using cLibrary.Enums;
-using cLibrary.Extensions;
 
-namespace cLibrary.Helper
+namespace cLibrary.Extensions
 {    
     public static class cQueryableExtensions
     { 

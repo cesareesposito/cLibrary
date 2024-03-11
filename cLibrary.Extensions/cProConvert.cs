@@ -4,7 +4,7 @@
 //using System.Text;
 //using System.Text.RegularExpressions;
 
-//namespace cLibrary.Helper
+//namespace cLibrary.Extensions
 //{
 //    public class cProConvert
 //    {
